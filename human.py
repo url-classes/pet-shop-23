@@ -13,6 +13,7 @@ class Human:
     def feed(self, dog: Dog):
         print(f"{self.name}: Voy a alimentar a {dog.name}")
         dog.eat()
+        dog.make_sound()
 
     def buy_dog(self, name: str) -> Dog:
         if self.credit < 500:

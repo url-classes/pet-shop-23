@@ -17,4 +17,7 @@ class Teacher(Human):
         if self.credit < 1000:
             raise Exception('Ha ocurrido un error')
 
+        if name[0].isupper() is True:
+            raise Exception('Los perros no deben nombrarse con mayúscula')
+
         return Animal('Misifus', 2500)

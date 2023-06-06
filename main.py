@@ -1,6 +1,3 @@
-import random
-
-from credit_error import CreditError
 from student import Student
 from human import Human
 from teacher import Teacher
@@ -65,3 +62,21 @@ except ArithmeticError as e:
 #     teacher1.buy_dog('Dash')
 # except ArithmeticError as e:
 #     print(e)
+
+
+# 4 - Las condiciones previas no deben fortalecerse
+try:
+    student1.credit = 1500
+    student1.buy_dog('Firu')
+except ArithmeticError as e:
+    print(e)
+
+try:
+    teacher1.credit = 2000
+    teacher1.buy_dog('Firu')
+except Exception as e:
+    print(e)
+
+# 5 - Las condiciones posteriores no deben debilitarse
+student1.feed(chihuahua1)
+# teacher1.feed(chihuahua1)

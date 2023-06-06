@@ -16,7 +16,8 @@ class Student(Human):
         print(f"{self.name}: ¿Puedo alimentar a {dog.name}?")
         option = input('Ingrese una opción (S/N): ')
         if option == 'S':
-            super().feed(dog)
+            dog.eat()
+            dog.make_sound()
         else:
             print(f'{self.name}: Lástima :(')
 
