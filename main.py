@@ -1,5 +1,6 @@
 import random
 
+from credit_error import CreditError
 from student import Student
 from human import Human
 from teacher import Teacher
@@ -29,16 +30,38 @@ for pet in pets:
     pet.make_sound()
 
 # 1- Los parámetros deben coincidir o ser más abstractos
-for person in people:
-    animal = random.choice(pets)
-    person.feed(animal)
+student1.feed(husky1)
+student2.feed(cat1)
+
+# teacher1.feed(husky1)
+# teacher2.feed(chihuahua1)
 
 
 # 2 - El tipo de retorno debe coincidir o ser más específico
 dogs: list[Dog] = []
-for index, person in enumerate(people):
-    dog = person.buy_dog(f'Perrito {index + 1}')
-    dogs.append(dog)
+
+student1.credit = 1500
+dogs.append(student1.buy_dog('Bruno'))
+student2.credit = 1500
+dogs.append(student2.buy_dog('Pinky'))
+
+# teacher1.credit = 1000
+# dogs.append(teacher1.buy_dog('Buster'))
+
 
 for dog in dogs:
     dog.bark()
+
+# 3 - Se deben lanzar excepciones del mismo tipo o subtipos de la base
+
+try:
+    student1.credit = 300
+    student1.buy_dog('Firu')
+except ArithmeticError as e:
+    print(e)
+
+# try:
+#     teacher1.credit = 800
+#     teacher1.buy_dog('Dash')
+# except ArithmeticError as e:
+#     print(e)

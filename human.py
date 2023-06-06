@@ -1,4 +1,5 @@
 from animal import Animal
+from credit_error import CreditError
 from dog import Dog
 from husky import Husky
 from chihuahua import Chihuahua
@@ -14,6 +15,9 @@ class Human:
         dog.eat()
 
     def buy_dog(self, name: str) -> Dog:
+        if self.credit < 500:
+            raise ArithmeticError()
+
         print(f"{self.name}: Voy a comprar un perro")
         if self.credit >= 1500.00:
             self.credit -= 1500

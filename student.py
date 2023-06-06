@@ -1,7 +1,7 @@
+from credit_error import CreditError
 from human import Human
-from dog import Dog
 from animal import Animal
-from husky import Husky
+from chihuahua import Chihuahua
 
 
 class Student(Human):
@@ -21,5 +21,8 @@ class Student(Human):
             print(f'{self.name}: Lástima :(')
 
     def buy_dog(self, name: str):
-        self.credit = 1500
-        return Husky(name)
+        if self.credit < 1500:
+            raise CreditError()
+
+        self.credit -= 1500
+        return Chihuahua(name)
